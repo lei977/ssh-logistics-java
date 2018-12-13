@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		"> 
+	<!-- Action -->
+	<bean id="resAction" class="action.ResAction" scope="prototype">
+		<property name="resEbi" ref="resEbi"/>
+	</bean>
+	<!-- Ebi -->
+	<bean id="resEbi" class="service.impl.ResEbo">
+		<property name="resDao" ref="resDao"/>
+	</bean>
+	<!-- Dao -->
+	<bean id="resDao" class="dao.impl.ResImpl">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+</beans>
